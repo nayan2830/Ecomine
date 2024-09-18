@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Sequestration</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            /* background-color: #e9f2f5; */
+            background-color: #ecffed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            background-color: #d7ffdd;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .results p {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .results.show {
+            display: block;
+        }
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Sequestration Rate</h1>
+        <form id="carbonForm">
+            <label for="siteName">Name of Mining Site:</label>
+            <input type="text" id="siteName" required>
+
+            <label for="vegetationType">Vegetation Type:</label>
+            <input type="text" id="vegetationType" required>
+
+            <label for="areaCovered">Area Covered (hectares):</label>
+            <input type="number" id="areaCovered" step="0.01" required>
+
+            <label for="sequestrationRate">Carbon Sequestration Rate (tons CO2/hectare/year):</label>
+            <input type="number" id="sequestrationRate" step="0.01" required>
+
+            <label for="additionalDetails">Additional Details:</label>
+            <textarea id="additionalDetails"></textarea>
+
+            <button type="button" onclick="calculateCarbonSequestration()">Calculate</button>
+            <button class="back-button" onclick="goBack()">Back</button>
+        </form>
+        <div id="results" style="display: none;">
+            <p>Daily Sequestration Rate: <span id="dailySequestrationRate">0</span> kg</p>
+            <p>Total Sequestration: <span id="totalSequestration">0</span> kg</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateCarbonSequestration() {
+            const areaCovered = parseFloat(document.getElementById('areaCovered').value);
+            const sequestrationRate = parseFloat(document.getElementById('sequestrationRate').value);
+
+            // Assuming the rate is per year, convert to daily
+            const dailySequestrationRate = (sequestrationRate * areaCovered * 1000) / 365; // in kg
+            const totalSequestration = dailySequestrationRate * 365; // in kg
+
+            // Store results in localStorage
+            localStorage.setItem('carbonSequestration', totalSequestration);
+
+            // Display results
+            document.getElementById('dailySequestrationRate').textContent = dailySequestrationRate.toFixed(2);
+            document.getElementById('totalSequestration').textContent = totalSequestration.toFixed(2);
+            document.getElementById('results').style.display = 'block';
+        }
+        
+        function goBack() {
+            window.location.href = 'mainPage.html';  // Replace 'index.html' with your actual main page file
+        }
+    
+    </script>
+</body>
+</html>

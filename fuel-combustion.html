@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Combustion Emissions</title>
+    <style>
+  
+  body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f7f9fc; */
+            background-color: #ecffed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #d7ffdd;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .results p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+        
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Fuel Combustion Emissions</h1>
+        <form id="fuelForm">
+            <label for="fuelType">Fuel Type:</label>
+            <select id="fuelType">
+                <option value="diesel">Diesel</option>
+                <option value="gasoline">Gasoline</option>
+                <!-- Add more fuel types if needed -->
+            </select>
+
+            <label for="fuelVolume">Volume of Fuel Consumed (litres):</label>
+            <input type="number" id="fuelVolume" step="0.01" required>
+
+            <button type="button" onclick="calculateFuelCombustion()">Calculate</button>
+            <button class="back-button" onclick="goBack()">Back</button>
+        </form>
+        <div id="results" style="display: none;">
+            <p>CO2 Emissions: <span id="co2Emissions">0</span> kg</p>
+            <p>Nitrous Oxide CO2 Emissions: <span id="noxEmissions">0</span> kg</p>
+            <p>Methane CO2 Emissions: <span id="methaneEmissions">0</span> kg</p>
+            <p>Total Direct CO2 Emissions: <span id="totalDirectCO2">0</span> kg</p>
+            <p>Indirect CO2 Emissions: <span id="indirectCO2">0</span> kg</p>
+            <p>Life Cycle CO2 Emissions: <span id="lifeCycleCO2">0</span> kg</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateFuelCombustion() {
+            const fuelType = document.getElementById('fuelType').value;
+            const fuelVolume = parseFloat(document.getElementById('fuelVolume').value);
+
+            // Example calculations (use actual emission factors for accuracy)
+            const co2Emissions = fuelVolume * (fuelType === 'diesel' ? 2.68 : 2.31); // kg CO2 per litre
+            const noxEmissions = co2Emissions * 0.05; // Example NOx factor
+            const methaneEmissions = co2Emissions * 0.01; // Example Methane factor
+            const totalDirectCO2 = co2Emissions;
+            const indirectCO2 = co2Emissions * 0.10; // Example Indirect CO2 factor
+            const lifeCycleCO2 = co2Emissions + indirectCO2;
+
+            // Store results in localStorage
+            localStorage.setItem('fuelCombustion', co2Emissions);
+
+            // Display results
+            document.getElementById('co2Emissions').textContent = co2Emissions.toFixed(2);
+            document.getElementById('noxEmissions').textContent = noxEmissions.toFixed(2);
+            document.getElementById('methaneEmissions').textContent = methaneEmissions.toFixed(2);
+            document.getElementById('totalDirectCO2').textContent = totalDirectCO2.toFixed(2);
+            document.getElementById('indirectCO2').textContent = indirectCO2.toFixed(2);
+            document.getElementById('lifeCycleCO2').textContent = lifeCycleCO2.toFixed(2);
+            document.getElementById('results').style.display = 'block';
+        }
+        function goBack() {
+            window.location.href = 'mainPage.html';  // Replace 'index.html' with your actual main page file
+        }
+    </script>
+
+</body>
+</html>

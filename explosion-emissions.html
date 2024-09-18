@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explosion Emissions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f7f9fc; */
+            background-color: #ecffed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #d7ffdd;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .results {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .results p {
+            margin: 5px 0;
+        }
+
+        .results.show {
+            display: block;
+        }
+        .btn{
+            display: flex;
+            gap: 10px;
+        }
+        back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Explosion Emissions</h1>
+        <form id="explosionForm">
+            <label for="explosiveType">Explosive Type:</label>
+            <select id="explosiveType">
+                <option value="dynamite">Dynamite</option>
+                <option value="TNT">TNT</option>
+                <!-- Add more explosive types if needed -->
+            </select>
+
+            <label for="amountUsed">Amount of Explosive Used (kg):</label>
+            <input type="number" id="amountUsed" step="0.01" required>
+             <div class="btn">
+                <button type="button" onclick="calculateExplosionEmissions()">Calculate</button>
+                <button class="back-button" onclick="goBack()">Back</button>
+             </div>
+            
+        </form>
+        <div id="results" class="results">
+            <p>Explosive Type: <span id="explosiveTypeResult"></span></p>
+            <p>Amount Used: <span id="amountUsedResult"></span> kg</p>
+            <p>CO2 Emissions: <span id="co2EmissionsResult"></span> kg</p>
+            <p>CO Emissions: <span id="coEmissionsResult"></span> kg</p>
+            <p>NOx Emissions: <span id="noxEmissionsResult"></span> kg</p>
+            <p>NH3 Emissions: <span id="nh3EmissionsResult"></span> kg</p>
+            <p>HCN Emissions: <span id="hcnEmissionsResult"></span> kg</p>
+            <p>H2S Emissions: <span id="h2sEmissionsResult"></span> kg</p>
+            <p>SO2 Emissions: <span id="so2EmissionsResult"></span> kg</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateExplosionEmissions() {
+            const explosiveType = document.getElementById('explosiveType').value;
+            const amountUsed = parseFloat(document.getElementById('amountUsed').value);
+
+            // Example emission factors (use actual factors for accuracy)
+            const emissionFactors = {
+                'dynamite': { co2: 0.5, co: 0.3, nox: 0.1, nh3: 0.05, hcn: 0.02, h2s: 0.01, so2: 0.03 },
+                'TNT': { co2: 0.6, co: 0.4, nox: 0.12, nh3: 0.06, hcn: 0.025, h2s: 0.015, so2: 0.04 }
+            };
+
+            const factors = emissionFactors[explosiveType] || {};
+            const co2Emissions = amountUsed * (factors.co2 || 0);
+            const coEmissions = amountUsed * (factors.co || 0);
+            const noxEmissions = amountUsed * (factors.nox || 0);
+            const nh3Emissions = amountUsed * (factors.nh3 || 0);
+            const hcnEmissions = amountUsed * (factors.hcn || 0);
+            const h2sEmissions = amountUsed * (factors.h2s || 0);
+            const so2Emissions = amountUsed * (factors.so2 || 0);
+
+            // Store results in localStorage
+            localStorage.setItem('explosionEmissions', co2Emissions);
+
+            // Display results
+            document.getElementById('explosiveTypeResult').textContent = explosiveType;
+            document.getElementById('amountUsedResult').textContent = amountUsed.toFixed(2);
+            document.getElementById('co2EmissionsResult').textContent = co2Emissions.toFixed(2);
+            document.getElementById('coEmissionsResult').textContent = coEmissions.toFixed(2);
+            document.getElementById('noxEmissionsResult').textContent = noxEmissions.toFixed(2);
+            document.getElementById('nh3EmissionsResult').textContent = nh3Emissions.toFixed(2);
+            document.getElementById('hcnEmissionsResult').textContent = hcnEmissions.toFixed(2);
+            document.getElementById('h2sEmissionsResult').textContent = h2sEmissions.toFixed(2);
+            document.getElementById('so2EmissionsResult').textContent = so2Emissions.toFixed(2);
+            document.getElementById('results').classList.add('show');
+        }
+        function goBack() {
+            window.location.href = 'mainPage.html';  // Replace 'index.html' with your actual main page file
+        }
+    
+    </script>
+</body>
+</html>

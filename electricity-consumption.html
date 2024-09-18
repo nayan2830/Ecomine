@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Consumption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f7f9fc; */
+            background-color: #ecffed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #d7ffdd;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .results p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Electricity Consumption</h1>
+        <form id="electricityForm">
+            <label for="energyPerTime">Energy Per Time (kWh/day):</label>
+            <input type="number" id="energyPerTime" step="0.01" required>
+
+            <label for="responsibleArea">Responsible Area (m²):</label>
+            <input type="number" id="responsibleArea" step="0.01" required>
+
+            <label for="totalArea">Total Area (m²):</label>
+            <input type="number" id="totalArea" step="0.01" required>
+
+            <button type="button" onclick="calculateElectricityConsumption()">Calculate</button>
+            <button class="back-button" onclick="goBack()">Back</button>
+        </form>
+        <div id="results" style="display: none;">
+            <p>CO2 Emissions: <span id="co2Emissions">0</span> kg/day</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateElectricityConsumption() {
+            const energyPerTime = parseFloat(document.getElementById('energyPerTime').value);
+            const responsibleArea = parseFloat(document.getElementById('responsibleArea').value);
+            const totalArea = parseFloat(document.getElementById('totalArea').value);
+
+            // Example conversion (use actual emission factors for accuracy)
+            const co2Emissions = (energyPerTime * responsibleArea / totalArea) * 0.233; // kg CO2 per kWh
+
+            // Store results in localStorage
+            localStorage.setItem('electricityConsumption', co2Emissions);
+
+            // Display results
+            document.getElementById('co2Emissions').textContent = co2Emissions.toFixed(2);
+            document.getElementById('results').style.display = 'block';
+        }
+        function goBack() {
+            window.location.href = 'mainPage.html';  // Replace 'index.html' with your actual main page file
+        }
+    </script>
+</body>
+</html>

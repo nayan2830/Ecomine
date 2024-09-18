@@ -1,0 +1,604 @@
+<html></html>
+<head>
+  <title>EcoGreen</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+    .navbar {
+        width: 95%;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: white;
+    }
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+    }
+    .navbar .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .navbar .logo span {
+        font-size: 24px;
+        font-weight: 700;
+        color: black;
+    }
+    .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar ul li {
+        display: inline;
+    }
+    .navbar ul li a {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+    .navbar .cta-buttons a {
+        text-decoration: none;
+        color: white;
+        background-color: #28a745;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+    .navbar .cta-buttons a:hover {
+        background-color: #218838;
+    }
+
+    /* Add background image only for .hero and .features
+    .hero, .features {
+        background: url('2.png') no-repeat center center fixed;
+        background-size: cover;
+    } */
+
+    .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background: rgba(27, 94, 32, 0.5); /* Semi-transparent overlay */
+        color: white;
+    }
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+    .hero .cta-button {
+        text-decoration: none;
+        color: white;
+        background-color: #4caf50;
+        padding: 15px 30px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .hero .cta-button:hover {
+        background-color: #43a047;
+    }
+
+    .features {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 40px 20px;
+        background: rgba(46, 125, 50, 0.5); /* Semi-transparent green */
+        color: white;
+    }
+    .features div {
+        text-align: center;
+    }
+    .features div i {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    /* Add background image only for .hero and .features */
+    .hero, .features {
+        background: url('zero4.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .container {
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .container h1 {
+        font-size: 2.5em;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+    .container p {
+        font-size: 1.2em;
+        color: #6c757d;
+        margin-bottom: 50px;
+    }
+    .features2 {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+    .feature {
+        max-width: 200px;
+    }
+    .feature i {
+        font-size: 2.5em;
+        color: #1a1a1a;
+        margin-bottom: 20px;
+    }
+    .feature h3 {
+        font-size: 1.2em;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+    .feature p {
+        font-size: 1em;
+        color: #6c757d;
+    }
+
+    .container2 {
+            padding: 50px 20px;
+        }
+        .title {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .achievements {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .achievement {
+            background-color: #e8f8e8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+        }
+        .achievement h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .achievement p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin: 5px 0 0;
+        }
+
+        .container3 {
+            text-align: center;
+            padding: 50px;
+        }
+        .title2 {
+            font-size: 36px;
+            color: #333;
+        }
+        .subtitle2 {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 200px;
+            text-align: left;
+            position: relative;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #010101;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .card-subtitle {
+            font-size: 14px;
+        }
+
+        .container4 {
+            display: flex;
+            background: rgba(46, 125, 50, 0.5); /* Semi-transparent green */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto;/* Center horizontally */
+            text-align: center;
+        }
+        .image-section {
+            flex: 1;
+        }
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .content-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content-section h1 {
+            font-size: 24px;
+            color: rgb(20, 71, 5);
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .content-section h1 i {
+            margin-right: 10px;
+            color: #2d9c3c;
+        }
+        .content-section p {
+            font-size: 16px;
+            color: black;
+            margin: 0 0 20px 0;
+        }
+        .content-section .author {
+            font-size: 14px;
+            color: #124919;
+            font-weight: bold;
+        }
+
+        .container5 {
+        color: white;
+            /* max-width: 1200px; */
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to bottom, #0b6623, #3cb371);
+    margin: 0;         /* Remove any margin */
+    padding: 0;        /* Remove any padding */
+    box-sizing: border-box; /* Ensure padding/border don't affect width */
+        }
+        .header {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .info {
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .contact-info div {
+            max-width: 200px;
+        }
+        .contact-info div p {
+            margin: 5px 0;
+        }
+        .contact-info div a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+        }
+
+        /* Add background image only for .hero and .features */
+    .container5{
+        color: white;
+        background: url('forest.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .footer-nav li {
+            display: inline;
+        }
+        .footer-nav a {
+            text-decoration: none;
+            color:white;
+            font-size: 16px;
+        }
+        .social-icons {
+            /* color: white;
+            background-color: black; */
+            text-align: center;
+            margin: 20px 0;
+        }
+        .social-icons a {
+            text-decoration: none;
+            /* color: #0519ff; */
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        .footer-text {
+            /* background-color: black; */
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+   <div class="logo">
+    <img alt="EcoGreen logo" height="50" src="4.png" width="50"/>
+    <span>EcoMine</span>
+   </div>
+   <ul>
+    <i class="fas fa-arrow-left"></i>
+    <li><a href="index.html">Back</a></li>
+    <li><a href="FrontPage.html">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Sustainability</a></li>
+   </ul>
+   <div class="cta-buttons">
+    <a href="LogIn Page.html">Login In <i class="fas fa-arrow-right"></i></a>
+    <a href="Signup page.html">Sign Up<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Join Us<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Contact us <i class="fas fa-arrow-right"></i></a>
+   </div>
+  </div>
+
+  <div class="hero">
+   <h1>Leading the Way in Sustainable Coal Mining</h1>
+   <p>At EcoGreen, we are committed to providing efficient and environmentally friendly coal mining solutions. Join us in our journey towards a greener future.</p>
+   <a class="cta-button" href="#">Join Our Green Initiative <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="features">
+   <div><i class="fas fa-leaf"></i><p>Eco-friendly Mining Practices</p></div>
+   <div><i class="fas fa-tools"></i><p>Innovative Technologies</p></div>
+   <div><i class="fas fa-globe"></i><p>Global Impact</p></div>
+  </div>
+
+  <div class="container">
+    <h1>Innovative Green Technologies</h1>
+    <p>Discover our cutting-edge technologies that make coal mining more sustainable and efficient.</p>
+    <div class="features2">
+        <div class="feature">
+            <i class="fas fa-recycle"></i>
+            <h3>Eco-friendly Equipment</h3>
+            <p>Our equipment minimizes environmental impact while maximizing efficiency.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-solar-panel"></i>
+            <h3>Renewable Energy Integration</h3>
+            <p>We integrate renewable energy sources to power our mining operations.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-trash-alt"></i>
+            <h3>Waste Management</h3>
+            <p>Our waste management solutions ensure minimal environmental footprint.</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="container2">
+    <div class="title">EcoGreen's Achievements</div>
+    <div class="subtitle">Our commitment to sustainability is reflected in our impressive statistics.</div>
+    <div class="achievements">
+        <div class="achievement">
+            <h3>50+</h3>
+            <p>Mines Operating Sustainably</p>
+        </div>
+        <div class="achievement">
+            <h3>30,000+ tons</h3>
+            <p>Carbon Emissions Reduced</p>
+        </div>
+        <div class="achievement">
+            <h3>100+</h3>
+            <p>Partnerships Formed</p>
+        </div>
+        <div class="achievement">
+            <h3>200+</h3>
+            <p>Innovations Implemented</p>
+        </div>
+    </div>
+</div>
+
+<div class="container3">
+    <div class="title2">
+     Our Green Operations
+    </div>
+    <div class="subtitle2">
+     Visual stories showcasing our commitment to sustainable mining.
+    </div>
+    <div class="cards">
+     <div class="card">
+      <img alt="Carbon FootPrint Calculator" height="300" src="carbon calculator.png" width="200"/>
+      <div class="card-content">
+     </div>
+     <div class="card-title">
+        <a href="carbon_footprint_tracker.html" style="list-style: none; text-decoration: none;color: black;">CARBON FOOTPRINT CALCULATOR</a>
+           </div>
+           <div class="card-subtitle">
+            Sustainability
+           </div>
+          </div>
+     <div class="card">
+      <img alt="Carbon Credit Wallet" height="300" src="wallet.png" width="200"/>
+      <div class="card-content">
+       <div class="card-title">
+        <a href="carbonCredit.html" style="list-style: none; text-decoration: none;color: black;">CARBON CREDIT WALLET </a>
+       </div>
+       <div class="card-subtitle">
+        Green Energy
+       </div>
+      </div>
+     </div>
+     <div class="card">
+        <a href="pathways.html" style="list-style: none; text-decoration: none;color: black;">
+            <img alt="Data Visualization" height="300" src="data visualization.png" width="200"/>
+        </a>
+      
+      <div class="card-content">
+        <div class="card-title"><a href="Data_Visulization_main.html" style="list-style: none; text-decoration: none;color: black;">
+         DATA <br>VISUALIZATION </a>
+        </div>
+        <div class="card-subtitle">
+         Waste Management
+        </div>
+       </div>
+     </div>
+
+
+     <div class="card">
+        <a href="pathways.html" >
+          <img alt="Carbon Neutrality Pathways" height="300" src="net zero.png" width="200"/>
+        </a>
+        <div class="card-content" style="font-weight: bold; color: black;">
+          <a href="pathways.html" style="list-style: none; text-decoration: none;color: black;">CARBON NEUTRALITY PATHWAYS</a>
+          <div class="card-subtitle">
+            Innovation
+          </div>
+        </div>
+      </div>
+      
+    
+      
+      
+     <div class="card">
+      <img alt="Data Inights" height="300" src="data insights.png" width="200"/>
+      <div class="card-content">
+       <div class="card-title">
+      <a href="insight.html"  style="list-style: none; text-decoration: none;color: black;">DATA INSIGHTS </a>
+       </div>
+       <div class="card-subtitle">
+        Protection
+       </div>
+      </div>
+     </div>
+    
+     <div class="card">
+      <img alt="Advance Technologies Used" height="300" src="advance technology.png" width="200"/>
+      <div class="card-content">
+       <div class="card-title">
+        ADVANCE TECHNOLOGIES USED
+       </div>
+       <div class="card-subtitle">
+        Development
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+                                  
+   <div class="container4">
+    <div class="image-section">
+     <img alt="A smiling man wearing a yellow hard hat and a reflective vest, standing in an industrial setting with construction equipment in the background." height="600" src="scientist.png" width="450"/>
+    </div>
+    <div class="content-section">
+     <h1>
+      <i class="fas fa-leaf">
+      </i>
+      EcoGreen Partner
+     </h1>
+     <p>
+      EcoGreen's sustainable practices have significantly reduced our carbon footprint. Their innovative solutions are a game-changer.
+     </p>
+     <p>
+      Working with EcoGreen has been a transformative experience. Their commitment to sustainability is unmatched.
+     </p>
+     <p class="author">
+      Alex Johnson, Environmental Scientist
+     </p>
+    </div>
+   </div>
+
+   <div class="container5">
+    <div class="header">Get in Touch with EcoGreen</div>
+    <div class="main-title">Interested in Our Sustainable Solutions?</div>
+    <div class="info">
+        <p>Monday-Friday, 9:00 am to 6:00 pm</p>
+        <p>Our team is available to answer your queries and discuss potential partnerships.</p>
+    </div>
+    <div class="contact-info">
+        <div>
+            <div class="header">SEND US A MESSAGE</div>
+            <p>contact@ecogreen.com</p>
+        </div>
+        <div>
+            <div class="header">FOLLOW US</div>
+            <a href="#">LinkedIn</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+        </div>
+        <div>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <ul class="footer-nav">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Sustainability Efforts</a></li>
+        <li><a href="#">Innovative Technologies</a></li>
+        <li><a href="#">Our Achievements</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+    </div>
+    <div class="footer-text">
+        © 2024 EcoGreen. All Rights Reserved. Dedicated to sustainable coal mining.
+    </div>
+</div>
+</body>
+</html>

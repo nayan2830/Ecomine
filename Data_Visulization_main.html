@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Visualization Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 20px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns per row */
+      grid-gap: 30px;
+    }
+
+    .image-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .caption {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="data1.jpg" alt="Graph 1">
+      <div class="caption">Graph 1: Carbon Sequestration Over Time</div>
+    </div>
+    <div class="image-container">
+      <img src="data2.jpg" alt="Graph 2">
+      <div class="caption">Graph 2: Data Comparison of Coal Usage</div>
+    </div>
+    <div class="image-container">
+      <img src="data3.jpg" alt="Data 1">
+      <div class="caption">Data Table: Carbon Emmisino from Coal mining Data</div>
+    </div>
+    <div class="image-container">
+      <img src="data4.jpg" alt="Graph 3">
+      <div class="caption">Graph 3: Fuel Efficiency Analysis</div>
+    </div>
+    <div class="image-container">
+      <img src="data5.jpg" alt="Graph 4">
+      <div class="caption">Graph 4: Renewable Energy Adoption in Mining</div>
+    </div>
+  </div>
+
+</body>
+</html>
