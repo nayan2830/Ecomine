@@ -1,1 +1,1 @@
-This is our user-friendly website made for indian coal mines.
+This is our user-friendly website made for Indian Coal Mines.
