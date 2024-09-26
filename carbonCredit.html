@@ -150,6 +150,26 @@
             display: none;
         }
 
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff; 
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: #d1d0d0; /* Slightly darker shade for hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding hover effect */
+        }
+
         /* Media queries for responsiveness */
         @media (max-width: 768px) {
             body {
@@ -198,6 +218,7 @@
             <li><a href="transaction.html">Transactions</a></li>
             <li><a href="#">Market Data</a></li>
             <li><a href="#">Carbon Footprint Analysis</a></li>
+            <li><a href="FrontPage.html">Back to Home Page</a></li>
         </ul>
     </div>
 
