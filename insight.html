@@ -1,184 +1,257 @@
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f7fafc; /* Light background */
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
     }
-    .fresh-bg {
-      background-color: #ffffff; /* Clean white background for content */
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
-    .fresh-text {
-      color: #2d3748; /* Darker text for better contrast */
+
+    .main-content {
+      flex: 1;
+      padding: 16px;
+      background-color: #ffffff; /* Fresh background color */
     }
-    .fresh-button {
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2d3748;
+    }
+
+    .header .info {
+      display: flex;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .header button {
       background-color: #38b2ac; /* Fresh teal color */
-      color: #ffffff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 8px;
+      border-radius: 4px;
+      cursor: pointer;
     }
-    .fresh-button:hover {
+
+    .header button:hover {
       background-color: #319795; /* Slightly darker teal on hover */
     }
-    .accent-text {
-      color: #3182ce; /* Fresh blue accent */
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      color: #2d3748;
     }
-    .accent-button {
-      background-color: #3182ce; /* Blue accent for important buttons */
-      color: #ffffff;
+
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 24px;
+      color: #2d3748;
     }
-    .accent-button:hover {
-      background-color: #2b6cb0; /* Darker blue on hover */
+
+    .score {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .score-circle {
+      width: 100px;
+      height: 100px;
+      border: 8px solid #38b2ac; /* Teal border */
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: #38b2ac;
+    }
+
+    .eco-rating {
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .upgrade-button {
+      background-color: #e2e8f0; /* Gray background */
+      color: #2d3748;
+      border: 1px solid #cbd5e0;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+    }
+
+    .stat i {
+      color: #38b2ac; /* Teal color */
+      margin-right: 8px;
+    }
+
+    .stat .stat-text {
+      color: #2d3748;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .header h1 {
+        font-size: 2rem;
+      }
+      .header button {
+        font-size: 1rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .subtitle {
+        font-size: 1.25rem;
+      }
+      .score-circle {
+        width: 160px;
+        height: 160px;
+        font-size: 3rem;
+      }
+      .eco-rating {
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="flex h-screen">
-    <!-- Main Content Now Full Width -->
-    <div class="w-full fresh-bg p-8 overflow-auto">
-      <div class="flex justify-between items-center mb-8">
-        <div class="text-2xl font-bold fresh-text">
-          Insights - Data
-        </div>
-        <div class="flex items-center space-x-4">
-          <div class="fresh-text flex items-center">
-            <i class="fas fa-users mr-2"></i>
-            Organization (44) 100 members
-          </div>
-          <button class="fresh-button px-4 py-2 rounded">
-            Download
-          </button>
-          <button class="accent-button px-4 py-2 rounded">
-            Share
-          </button>
+  <div class="container">
+    <div class="main-content">
+      <!-- Header Section -->
+      <div class="header">
+        <h1>Insights - Data</h1>
+        <div class="info">
+          <i class="fas fa-users"></i>
+          <span>Organization (44) 100 members</span>
+          <button>Download</button>
+          <button>Share</button>
         </div>
       </div>
-      <div class="fresh-bg p-8 rounded-lg shadow-md">
-        <div class="fresh-text mb-4">
-          Carbon Emission Analysis
-        </div>
-        <div class="fresh-text text-lg font-medium mb-8">
-          Visualizing and analyzing carbon emission data for informed decisions.
-        </div>
-        <div class="flex items-center justify-center mb-4">
-          <div class="relative">
-            <div class="w-40 h-40 rounded-full border-8 border-teal-400 flex items-center justify-center">
-              <div class="text-4xl font-bold text-teal-400">
-                9.2
-              </div>
-            </div>
+      <!-- Main Content -->
+      <div class="section-title">Carbon Emission Analysis</div>
+      <div class="subtitle">Visualizing and analyzing carbon emission data for informed decisions.</div>
+      <!-- Circular Score Section -->
+      <div class="score">
+        <div class="score-circle">9.2</div>
+      </div>
+      <div class="eco-rating">Eco Rating: 9/10</div>
+      <!-- Upgrade Button -->
+      <div class="flex justify-center mb-8">
+        <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded border border-gray-300">
+          UPGRADE PLAN
+        </button>
+      </div>
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat">
+          <i class="fas fa-leaf"></i>
+          <div class="stat-text">
+            <div class="stat-name">Sustainable Practices</div>
+            <div class="stat-value">8.5</div>
           </div>
         </div>
-        <div class="flex justify-center mb-8">
-          <div class="accent-text">
-            Eco Rating: 9/10
+        <div class="stat">
+          <i class="fas fa-chart-line"></i>
+          <div class="stat-text">
+            <div class="stat-name">Impact Analysis</div>
+            <div class="stat-value">6.1</div>
           </div>
         </div>
-        <div class="flex justify-center mb-8">
-          <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded border border-gray-300">
-            UPGRADE PLAN
-          </button>
+        <div class="stat">
+          <i class="fas fa-recycle"></i>
+          <div class="stat-text">
+            <div class="stat-name">Emission Reduction</div>
+            <div class="stat-value">6.2</div>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-leaf text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Sustainable Practices
-              </div>
-              <div class="text-gray-600">
-                8.5
-              </div>
-            </div>
+        <div class="stat">
+          <i class="fas fa-tree"></i>
+          <div class="stat-text">
+            <div class="stat-name">Carbon Offsetting</div>
+            <div class="stat-value">7.4</div>
           </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-chart-line text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Impact Analysis
-              </div>
-              <div class="text-gray-600">
-                6.1
-              </div>
-            </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-bolt"></i>
+          <div class="stat-text">
+            <div class="stat-name">Renewable Energy Usage</div>
+            <div class="stat-value">7.4</div>
           </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-recycle text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Emission Reduction
-              </div>
-              <div class="text-gray-600">
-                6.2
-              </div>
-            </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-leaf"></i>
+          <div class="stat-text">
+            <div class="stat-name">Sustainability Initiatives</div>
+            <div class="stat-value">9.1</div>
           </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-tree text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Carbon Offsetting
-              </div>
-              <div class="text-gray-600">
-                7.4
-              </div>
-            </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-globe"></i>
+          <div class="stat-text">
+            <div class="stat-name">Environmental Awareness</div>
+            <div class="stat-value">6.4</div>
           </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-bolt text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Renewable Energy Usage
-              </div>
-              <div class="text-gray-600">
-                7.4
-              </div>
-            </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-award"></i>
+          <div class="stat-text">
+            <div class="stat-name">Green Practices Recognition</div>
+            <div class="stat-value">8.2</div>
           </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-leaf text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Sustainability Initiatives
-              </div>
-              <div class="text-gray-600">
-                9.1
-              </div>
-            </div>
-          </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-globe text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Environmental Awareness
-              </div>
-              <div class="text-gray-600">
-                6.4
-              </div>
-            </div>
-          </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-award text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Green Practices Recognition
-              </div>
-              <div class="text-gray-600">
-                8.2
-              </div>
-            </div>
-          </div>
-          <div class="flex items-center space-x-2">
-            <i class="fas fa-users text-teal-400"></i>
-            <div>
-              <div class="fresh-text font-medium">
-                Community Engagement
-              </div>
-              <div class="text-gray-600">
-                7.8
-              </div>
-            </div>
+        </div>
+        <div class="stat">
+          <i class="fas fa-users"></i>
+          <div class="stat-text">
+            <div class="stat-name">Community Engagement</div>
+            <div class="stat-value">7.8</div>
           </div>
         </div>
       </div>

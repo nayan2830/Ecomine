@@ -1,28 +1,30 @@
-<html lang="en"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carbon Footprint Tracker</title>
     <style>
-        body{
+        body {
             background-color: #ecffed;
         }
-        h1{
-            margin-left:35% ;
+
+        h1 {
+            margin-left: 35%;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
+
         .card {
-            /* background-color: #f8f9fa; */
             background-color: #d7ffdd;
             border: 1px solid #dee2e6;
             border-radius: 0.25rem;
@@ -30,20 +32,48 @@
             cursor: pointer;
             transition: box-shadow 0.3s ease-in-out;
         }
+
         .card:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .card h2 {
             margin-top: 0;
         }
+
         .last-row {
             grid-column: 2 / 3;
+        }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #d7ffdd; /* Matching the card color */
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: #c0ecc6; /* Slightly darker shade for hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding hover effect */
         }
     </style>
 </head>
 <body>
+
+    <!-- Back Button -->
+    <a href="FrontPage.html" class="back-button">← Back</a>
+
     <div class="container">
-        <h1>Carbon Footprint Tracker</h1>
+        <h1>Carbon Footprint Tracker</h1> 
         
         <div class="grid">
             <div class="card" onclick="window.location.href='sequestration.html'">

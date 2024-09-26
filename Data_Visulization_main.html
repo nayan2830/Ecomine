@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +41,37 @@
       font-size: 18px;
       color: #333;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+        padding: 10px;
+        grid-gap: 20px;
+      }
+
+      .image-container {
+        padding: 15px;
+      }
+
+      .caption {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        margin: 10px auto;
+        grid-gap: 15px;
+      }
+
+      .image-container {
+        padding: 10px;
+      }
+
+      .caption {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -55,7 +87,7 @@
     </div>
     <div class="image-container">
       <img src="data3.jpg" alt="Data 1">
-      <div class="caption">Data Table: Carbon Emmisino from Coal mining Data</div>
+      <div class="caption">Data Table: Carbon Emission from Coal Mining Data</div>
     </div>
     <div class="image-container">
       <img src="data4.jpg" alt="Graph 3">

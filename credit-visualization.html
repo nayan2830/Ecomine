@@ -19,6 +19,7 @@
 
         h1 {
             text-align: center;
+            font-size: 24px;
         }
 
         .image-grid {
@@ -30,7 +31,6 @@
         }
 
         .image-container {
-            /* background-color: #383c47; */
             border-radius: 10px;
             padding: 10px;
             text-align: center;
@@ -59,10 +59,35 @@
             border-radius: 5px;
             color: #fff;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .back-button button:hover {
             background-color: #18a964;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .image-container {
+                padding: 5px;
+            }
+
+            .back-button button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
