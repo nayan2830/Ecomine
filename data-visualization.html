@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +13,9 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 100vh;
         }
 
         .container {
@@ -27,6 +28,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 20px auto;
+            flex-grow: 1;
         }
 
         h1 {
@@ -68,8 +71,26 @@
         .back-button button:hover {
             background-color: #45a049;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+
+        /* Ensure full visibility for taskbar or mobile navigation */
+        body, html {
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Prevent content from being hidden behind taskbar */
+        .container {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Data Visualization</h1>
@@ -118,7 +139,7 @@
                 plugins: {
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
+                            label: function (context) {
                                 let label = context.label || '';
                                 if (context.parsed > 0) {
                                     label += ': ' + context.parsed.toFixed(2) + ' kg';
@@ -170,9 +191,9 @@
         });
 
         function goBack() {
-            // Navigate back to mainPage.html
             window.location.href = 'mainPage.html';
         }
     </script>
 </body>
+
 </html>

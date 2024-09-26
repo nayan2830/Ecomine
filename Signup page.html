@@ -226,15 +226,16 @@ body {
 /* Navbar Styles */
 .navbar {
     width: 100%;
-    position: fixed;
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Stick to the top */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background-color: white;
-    top: 0;
     z-index: 1000;
 }
+
 .navbar .logo {
     display: flex;
     align-items: center;
@@ -351,6 +352,10 @@ body {
     background-repeat: no-repeat;
     color: white;
     box-sizing: border-box;
+}
+
+.job-postings > a {
+    text-decoration: none;
 }
 
 /* ... (rest of the original CSS) ... */
@@ -474,8 +479,6 @@ body {
          <span>EcoMine</span>
         </div>
         <ul>
-         <i class="fas fa-arrow-left"></i>
-         <li><a href="FrontPage.html">Back</a></li>
          <li><a href="FrontPage.html">Home</a></li>
          <li><a href="#">About Us</a></li>
          <li><a href="#">Sustainability</a></li>
